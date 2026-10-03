@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Ritesh Yadav — AI & Data Science student, developer and technology enthusiast.">
-
-    <meta name="author" content="Ritesh Yadav">
+    <meta
+        name="description"
+        content="Ritesh Yadav — AI & Data Science student, web developer and aspiring AI engineer."
+    >
 
     <title>Ritesh Yadav | AI & Data Science</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./style.css">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Icons -->
-    <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    >
 </head>
 
 <body>
@@ -36,23 +36,25 @@
          PAGE LOADER
     ========================== -->
 
-    <div class="page-loader" id="page-loader">
-
+    <div class="loader" id="loader">
         <div class="loader-content">
-
-            <div class="loader-logo">
-                RY
-            </div>
-
+            <div class="loader-logo">RY</div>
             <div class="loader-line">
                 <span></span>
             </div>
-
-            <p>Loading Portfolio...</p>
-
+            <p>Loading portfolio...</p>
         </div>
-
     </div>
+
+
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+
+    <div class="page-grid"></div>
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
 
 
     <!-- =========================
@@ -64,84 +66,48 @@
 
 
     <!-- =========================
-         BACKGROUND
-    ========================== -->
-
-    <div class="background-grid"></div>
-
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
-
-
-    <!-- =========================
          SCROLL PROGRESS
     ========================== -->
 
-    <div class="scroll-progress">
-        <span id="scroll-progress"></span>
-    </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
 
     <!-- =========================
          NAVBAR
     ========================== -->
 
-    <header class="navbar" id="navbar">
+    <header class="navbar">
 
-        <div class="container nav-container">
+        <div class="nav-container">
 
             <a href="#home" class="logo">
-                <span class="logo-symbol">RY</span>
-                <span class="logo-text">Ritesh.</span>
+                <span>R</span>
+                <span>Y</span>
             </a>
 
 
-            <nav class="nav-links" id="nav-links">
+            <nav class="nav-links">
 
-                <a href="#home" class="active">
-                    <span>01</span>
-                    Home
-                </a>
-
-                <a href="#about">
-                    <span>02</span>
-                    About
-                </a>
-
-                <a href="#skills">
-                    <span>03</span>
-                    Skills
-                </a>
-
-                <a href="#projects">
-                    <span>04</span>
-                    Projects
-                </a>
-
-                <a href="#journey">
-                    <span>05</span>
-                    Journey
-                </a>
-
-                <a href="#contact">
-                    <span>06</span>
-                    Contact
-                </a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#contact" class="nav-link">Contact</a>
 
             </nav>
 
 
             <a href="#contact" class="nav-cta">
                 Let's Talk
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>↗</span>
             </a>
 
 
-            <button class="menu-btn" id="menu-btn" aria-label="Open menu">
-
+            <button class="menu-button" id="menuButton" aria-label="Open menu">
                 <span></span>
                 <span></span>
-
+                <span></span>
             </button>
 
         </div>
@@ -150,8 +116,20 @@
 
 
     <!-- =========================
-         MAIN
+         MOBILE MENU
     ========================== -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
 
     <main>
 
@@ -160,78 +138,53 @@
              HERO
         ========================== -->
 
-        <section class="hero section" id="home">
+        <section class="hero" id="home">
 
-            <div class="container hero-container">
+            <div class="hero-overlay"></div>
 
-
-                <!-- LEFT -->
+            <div class="hero-container">
 
                 <div class="hero-content reveal">
 
                     <div class="hero-badge">
-
                         <span class="status-dot"></span>
-
-                        <span>Open to Learning • Building • Creating</span>
-
+                        Open to Learning • Building • Creating
                     </div>
 
 
-                    <p class="hero-small-text">
-                        Hello, I'm
+                    <p class="hero-small">
+                        HELLO, I'M
                     </p>
 
 
                     <h1>
-
                         Ritesh
-                        <span>Yadav.</span>
-
+                        <span>Yadav</span>
                     </h1>
 
 
                     <div class="hero-role">
-
-                        <span>I'm a</span>
-
-                        <strong id="typing-text">
-                            AI & Data Science Student
-                        </strong>
-
+                        <span id="typingText"></span>
                         <span class="typing-cursor">|</span>
-
                     </div>
 
 
                     <p class="hero-description">
-
-                        I build digital experiences, explore artificial
-                        intelligence and turn ideas into real-world projects.
-
-                        Currently learning, experimenting and building
-                        towards becoming an AI Engineer.
-
+                        B.Tech student specializing in Artificial Intelligence &
+                        Data Science, focused on web development, Python,
+                        data analysis and AI-driven digital experiences.
                     </p>
 
 
                     <div class="hero-buttons">
 
-                        <a href="#projects" class="btn btn-primary magnetic">
-
+                        <a href="#projects" class="button button-primary">
                             Explore My Work
-
-                            <i class="fa-solid fa-arrow-down"></i>
-
+                            <span>↗</span>
                         </a>
 
-
-                        <a href="#contact" class="btn btn-secondary magnetic">
-
-                            Contact Me
-
-                            <i class="fa-regular fa-paper-plane"></i>
-
+                        <a href="#contact" class="button button-secondary">
+                            Let's Connect
                         </a>
 
                     </div>
@@ -240,92 +193,31 @@
                     <div class="hero-socials">
 
                         <a
-                            href="https://github.com/"
+                            href="https://github.com/RiteshYadav888"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="GitHub">
-
-                            <i class="fa-brands fa-github"></i>
-
+                            aria-label="GitHub"
+                        >
+                            GH
                         </a>
-
 
                         <a
-                            href="https://www.linkedin.com/"
+                            href="https://www.linkedin.com/in/ritesh-yadav-022060380/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="LinkedIn">
-
-                            <i class="fa-brands fa-linkedin-in"></i>
-
+                            aria-label="LinkedIn"
+                        >
+                            IN
                         </a>
-
 
                         <a
-                            href="https://www.instagram.com/"
+                            href="https://www.instagram.com/rriteshh_yadavv/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Instagram">
-
-                            <i class="fa-brands fa-instagram"></i>
-
+                            aria-label="Instagram"
+                        >
+                            IG
                         </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- RIGHT -->
-
-                <div class="hero-visual reveal">
-
-                    <div class="hero-image-wrapper">
-
-                        <div class="image-glow"></div>
-
-                        <div class="image-frame">
-
-                            <!-- <img
-                                src="./assets/ritesh.png"
-                                alt="Ritesh Yadav"
-                                class="hero-image"> -->
-
-                        </div>
-
-
-                        <!-- floating cards -->
-
-                        <div class="floating-card card-top">
-
-                            <div class="floating-icon">
-                                <i class="fa-solid fa-code"></i>
-                            </div>
-
-                            <div>
-                                <span>Currently</span>
-                                <strong>Building</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="floating-card card-bottom">
-
-                            <div class="floating-icon">
-                                <i class="fa-solid fa-brain"></i>
-                            </div>
-
-                            <div>
-                                <span>Focused on</span>
-                                <strong>AI + Data</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="orbit orbit-one"></div>
-                        <div class="orbit orbit-two"></div>
 
                     </div>
 
@@ -334,11 +226,9 @@
             </div>
 
 
-            <!-- scroll -->
+            <div class="hero-scroll">
 
-            <div class="scroll-indicator">
-
-                <span>Scroll to explore</span>
+                <span>SCROLL TO EXPLORE</span>
 
                 <div class="scroll-line">
                     <span></span>
@@ -349,47 +239,59 @@
         </section>
 
 
+
         <!-- =========================
              TECH MARQUEE
         ========================== -->
 
-        <section class="tech-marquee">
+        <section class="marquee-section">
 
-            <div class="marquee-track">
+            <div class="marquee">
 
-                <span>PYTHON</span>
-                <i>✦</i>
+                <div class="marquee-track">
 
-                <span>JAVASCRIPT</span>
-                <i>✦</i>
+                    <span>HTML</span>
+                    <i>✦</i>
 
-                <span>HTML</span>
-                <i>✦</i>
+                    <span>CSS</span>
+                    <i>✦</i>
 
-                <span>CSS</span>
-                <i>✦</i>
+                    <span>JAVASCRIPT</span>
+                    <i>✦</i>
 
-                <span>PANDAS</span>
-                <i>✦</i>
+                    <span>PYTHON</span>
+                    <i>✦</i>
 
-                <span>MACHINE LEARNING</span>
-                <i>✦</i>
+                    <span>DATA ANALYSIS</span>
+                    <i>✦</i>
 
-                <span>GITHUB</span>
-                <i>✦</i>
+                    <span>AI & ML</span>
+                    <i>✦</i>
 
-                <span>GOOGLE COLAB</span>
-                <i>✦</i>
+                    <span>GITHUB</span>
+                    <i>✦</i>
 
-                <span>PYTHON</span>
-                <i>✦</i>
+                    <span>GIT</span>
+                    <i>✦</i>
 
-                <span>JAVASCRIPT</span>
-                <i>✦</i>
+                    <span>HTML</span>
+                    <i>✦</i>
+
+                    <span>CSS</span>
+                    <i>✦</i>
+
+                    <span>JAVASCRIPT</span>
+                    <i>✦</i>
+
+                    <span>PYTHON</span>
+                    <i>✦</i>
+
+                </div>
 
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -402,11 +304,12 @@
 
                 <div class="section-heading reveal">
 
-                    <span class="section-number">01 / ABOUT</span>
+                    <p class="section-label">01 / ABOUT</p>
 
                     <h2>
                         More than a student.
-                        <span>I'm a builder.</span>
+
+                        <span> I'm a builder.</span>
                     </h2>
 
                 </div>
@@ -414,59 +317,38 @@
 
                 <div class="about-grid">
 
-
                     <div class="about-text reveal">
 
                         <p class="large-text">
-
-                            I'm a B.Tech student specializing in
-                            <strong>Artificial Intelligence & Data Science</strong>
-                            with a growing passion for technology,
-                            development and intelligent systems.
-
+                            I'm Ritesh Yadav, a B.Tech student specializing in
+                            Artificial Intelligence & Data Science.
                         </p>
-
 
                         <p>
-
-                            I enjoy learning how things work, experimenting
-                            with new technologies and converting concepts
-                            into practical projects.
-
+                            I'm passionate about web development, AI, data
+                            analysis, and building modern digital experiences.
+                            I enjoy taking an idea and turning it into
+                            something functional, interactive and useful.
                         </p>
-
 
                         <p>
-
-                            My current journey combines web development,
-                            programming, data analysis and artificial
-                            intelligence.
-
+                            Currently, I'm strengthening my skills in HTML,
+                            CSS, JavaScript, Python and data-focused
+                            technologies while exploring how AI and data can
+                            be used to solve real-world problems.
                         </p>
-
-
-                        <div class="about-signature">
-
-                            <span>Ritesh Yadav</span>
-
-                            <small>
-                                AI & Data Science Student
-                            </small>
-
-                        </div>
 
                     </div>
 
 
-                    <div class="stats-grid reveal">
+                    <div class="about-stats reveal">
 
                         <div class="stat-card">
 
-                            <strong data-count="3">0</strong>
+                            <strong>01+</strong>
 
                             <span>
-                                Core Web<br>
-                                Technologies
+                                Web Projects
                             </span>
 
                         </div>
@@ -474,23 +356,10 @@
 
                         <div class="stat-card">
 
-                            <strong data-count="5">0</strong>
+                            <strong>04+</strong>
 
                             <span>
-                                Active<br>
-                                Learning Areas
-                            </span>
-
-                        </div>
-
-
-                        <div class="stat-card">
-
-                            <strong data-count="2">0</strong>
-
-                            <span>
-                                Featured<br>
-                                Projects
+                                Core Technologies
                             </span>
 
                         </div>
@@ -501,8 +370,18 @@
                             <strong>∞</strong>
 
                             <span>
-                                Curiosity &<br>
-                                Learning
+                                Learning Mindset
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <strong>2029</strong>
+
+                            <span>
+                                Target Graduation
                             </span>
 
                         </div>
@@ -514,6 +393,7 @@
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -526,85 +406,74 @@
 
                 <div class="section-heading reveal">
 
-                    <span class="section-number">02 / SKILLS</span>
+                    <p class="section-label">02 / SKILLS</p>
 
                     <h2>
-                        Technologies I'm
-                        <span>building with.</span>
-                    </h2>
+                        Technologies 
 
-                    <p>
-                        A continuously evolving stack as I learn,
-                        build and experiment.
-                    </p>
+                        <span>I'm building with.</span>
+                    </h2>
 
                 </div>
 
 
-                <div class="skills-layout">
+                <div class="skills-grid">
 
 
-                    <!-- PROGRAMMING -->
+                    <!-- Programming -->
 
-                    <div class="skill-category reveal">
+                    <div class="skill-card reveal">
 
-                        <div class="category-header">
+                        <div class="skill-number">01</div>
 
-                            <div class="category-icon">
-                                <i class="fa-solid fa-terminal"></i>
-                            </div>
+                        <h3>Programming</h3>
 
-                            <div>
-                                <span>01</span>
-                                <h3>Programming</h3>
-                            </div>
-
-                        </div>
+                        <p>
+                            Building programming fundamentals and
+                            problem-solving skills.
+                        </p>
 
 
-                        <div class="skill-item">
+                        <div class="skill-list">
 
-                            <div class="skill-info">
+                            <div class="skill-item">
 
-                                <span>Python</span>
-                                <span>Learning</span>
+                                <div>
+                                    <span>Python</span>
+                                    <small>Learning</small>
+                                </div>
 
-                            </div>
-
-                            <div class="skill-bar">
-                                <span style="--progress: 65%"></span>
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-item">
-
-                            <div class="skill-info">
-
-                                <span>C++</span>
-                                <span>Intermediate</span>
+                                <div class="skill-bar">
+                                    <span style="--width: 68%"></span>
+                                </div>
 
                             </div>
 
-                            <div class="skill-bar">
-                                <span style="--progress: 60%"></span>
-                            </div>
 
-                        </div>
+                            <div class="skill-item">
 
+                                <div>
+                                    <span>C++</span>
+                                    <small>Fundamentals</small>
+                                </div>
 
-                        <div class="skill-item">
-
-                            <div class="skill-info">
-
-                                <span>JavaScript</span>
-                                <span>Learning</span>
+                                <div class="skill-bar">
+                                    <span style="--width: 62%"></span>
+                                </div>
 
                             </div>
 
-                            <div class="skill-bar">
-                                <span style="--progress: 55%"></span>
+<div class="skill-item">
+
+                                <div>
+                                    <span>JavaScript</span>
+                                    <small>Learning</small>
+                                </div>
+
+                                <div class="skill-bar">
+                                    <span style="--width: 70%"></span>
+                                </div>
+
                             </div>
 
                         </div>
@@ -612,135 +481,127 @@
                     </div>
 
 
-                    <!-- WEB -->
 
-                    <div class="skill-category reveal">
+                    <!-- Web -->
 
-                        <div class="category-header">
+                    <div class="skill-card reveal">
 
-                            <div class="category-icon">
-                                <i class="fa-solid fa-globe"></i>
-                            </div>
+                        <div class="skill-number">02</div>
 
-                            <div>
-                                <span>02</span>
-                                <h3>Web Development</h3>
-                            </div>
+                        <h3>Web Development</h3>
 
-                        </div>
+                        <p>
+                            Creating responsive and interactive
+                            web experiences.
+                        </p>
 
 
-                        <div class="skill-item">
+                        <div class="skill-list">
 
-                            <div class="skill-info">
+                            <div class="skill-item">
 
-                                <span>HTML</span>
-                                <span>Strong</span>
+                                <div>
+                                    <span>HTML</span>
+                                    <small>Building</small>
+                                </div>
 
-                            </div>
-
-                            <div class="skill-bar">
-                                <span style="--progress: 85%"></span>
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-item">
-
-                            <div class="skill-info">
-
-                                <span>CSS</span>
-                                <span>Strong</span>
+                                <div class="skill-bar">
+                                    <span style="--width: 88%"></span>
+                                </div>
 
                             </div>
 
-                            <div class="skill-bar">
-                                <span style="--progress: 80%"></span>
-                            </div>
 
-                        </div>
+                            <div class="skill-item">
 
+                                <div>
+                                    <span>CSS</span>
+                                    <small>Building</small>
+                                </div>
 
-                        <div class="skill-item">
-
-                            <div class="skill-info">
-
-                                <span>Responsive Design</span>
-                                <span>Learning</span>
+                                <div class="skill-bar">
+                                    <span style="--width: 82%"></span>
+                                </div>
 
                             </div>
 
-                            <div class="skill-bar">
-                                <span style="--progress: 65%"></span>
+
+                            <div class="skill-item">
+
+                                <div>
+                                    <span>Responsive Design</span>
+                                    <small>Learning</small>
+                                </div>
+
+                                <div class="skill-bar">
+                                    <span style="--width: 70%"></span>
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
+
 
 
                     <!-- AI -->
 
-                    <div class="skill-category reveal">
+                    <div class="skill-card reveal">
 
-                        <div class="category-header">
+                        <div class="skill-number">03</div>
 
-                            <div class="category-icon">
-                                <i class="fa-solid fa-brain"></i>
-                            </div>
+                        <h3>AI & Data</h3>
 
-                            <div>
-                                <span>03</span>
-                                <h3>AI & Data</h3>
-                            </div>
-
-                        </div>
+                        <p>
+                            Exploring data, artificial intelligence
+                            and machine learning.
+                        </p>
 
 
-                        <div class="skill-item">
+                        <div class="skill-list">
 
-                            <div class="skill-info">
+                            <div class="skill-item">
 
-                                <span>Pandas</span>
-                                <span>Learning</span>
+                                
+                                <div>
+                                    <span>Pandas</span>
+                                    <small>Learning</small>
+                                </div>
 
-                            </div>
-
-                            <div class="skill-bar">
-                                <span style="--progress: 50%"></span>
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-item">
-
-                            <div class="skill-info">
-
-                                <span>Data Analysis</span>
-                                <span>Learning</span>
+                                <div class="skill-bar">
+                                    <span style="--width: 55%"></span>
+                                </div>
 
                             </div>
 
-                            <div class="skill-bar">
-                                <span style="--progress: 45%"></span>
+
+                            <div class="skill-item">
+
+                                
+                                <div>
+                                    <span>Data Analysis</span>
+                                    <small>Learning</small>
+                                </div>
+
+                                <div class="skill-bar">
+                                    <span style="--width: 55%"></span>
+                                </div>
+
                             </div>
 
-                        </div>
 
+                            <div class="skill-item">
 
-                        <div class="skill-item">
+                                <div>
+                                    <span>Machine Learning</span>
+                                    <small>Exploring</small>
+                                </div>
 
-                            <div class="skill-info">
+                                <div class="skill-bar">
+                                    <span style="--width: 38%"></span>
+                                </div>
 
-                                <span>Machine Learning</span>
-                                <span>Exploring</span>
-
-                            </div>
-
-                            <div class="skill-bar">
-                                <span style="--progress: 30%"></span>
                             </div>
 
                         </div>
@@ -748,32 +609,28 @@
                     </div>
 
 
-                    <!-- TOOLS -->
 
-                    <div class="skill-category reveal">
+                    <!-- Tools -->
 
-                        <div class="category-header">
+                    <div class="skill-card reveal">
 
-                            <div class="category-icon">
-                                <i class="fa-solid fa-screwdriver-wrench"></i>
-                            </div>
+                        <div class="skill-number">04</div>
 
-                            <div>
-                                <span>04</span>
-                                <h3>Tools</h3>
-                            </div>
+                        <h3>Tools</h3>
 
-                        </div>
+                        <p>
+                            Tools used for development, collaboration
+                            and learning.
+                        </p>
 
 
-                        <div class="tool-cloud">
+                        <div class="tool-tags">
 
+                            <span>VS Code</span>
                             <span>Git</span>
                             <span>GitHub</span>
-                            <span>VS Code</span>
                             <span>Google Colab</span>
-                            <span>Canva</span>
-                            <span>Chrome DevTools</span>
+                            <span>Kaggle</span>
 
                         </div>
 
@@ -784,6 +641,7 @@
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -794,18 +652,14 @@
 
             <div class="container">
 
-                <div class="section-heading projects-heading reveal">
+                <div class="section-heading reveal">
 
-                    <span class="section-number">03 / PROJECTS</span>
+                    <p class="section-label">03 / PROJECTS</p>
 
                     <h2>
                         Things I've
                         <span>built.</span>
                     </h2>
-
-                    <p>
-                        Turning ideas into practical digital experiences.
-                    </p>
 
                 </div>
 
@@ -813,20 +667,15 @@
                 <div class="projects-list">
 
 
-                    <!-- PROJECT 1 -->
+                    <!-- Project 01 -->
 
-                    <article class="project-card featured-project reveal">
+                    <article class="project-card reveal">
 
-                        <div class="project-number">
-                            01
-                        </div>
-
-
-                        <div class="project-content">
+                        <div class="project-info">
 
                             <div class="project-meta">
-                                <span>WEB APPLICATION</span>
-                                <span>2026</span>
+                                <span>01</span>
+                                <span>WEB DEVELOPMENT</span>
                             </div>
 
 
@@ -836,11 +685,9 @@
 
 
                             <p>
-
-                                A student-focused study planning platform
-                                designed to organize learning goals,
-                                daily tasks and study routines.
-
+                                A modern study planning platform designed
+                                to help students organize learning goals,
+                                daily tasks and study progress.
                             </p>
 
 
@@ -849,70 +696,46 @@
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>JavaScript</span>
-                                <span>AI Concept</span>
 
                             </div>
 
 
-                            <div class="project-actions">
-
-                                <a
-                                    href="https://riteshyadav888.github.io/Ritora/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="project-link">
-
-                                    Live Project
-
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                                </a>
-
-                                <a href="#" class="project-link muted-link">
-
-                                    Case Study
-
-                                    <i class="fa-solid fa-arrow-right"></i>
-
-                                </a>
-
-                            </div>
+                            <a
+                                href="https://riteshyadav888.github.io/Ritora/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link"
+                            >
+                                View Live Project
+                                <span>↗</span>
+                            </a>
 
                         </div>
 
 
-                        <div class="project-visual planner-visual">
+                        <div class="project-visual study-visual">
 
-                            <div class="visual-window">
+                            <div class="mockup-window">
 
-                                <div class="window-bar">
-
+                                <div class="mockup-top">
                                     <span></span>
                                     <span></span>
                                     <span></span>
-
                                 </div>
 
+                                <div class="mockup-content">
 
-                                <div class="mock-dashboard">
+                                    <div class="mockup-header"></div>
 
-                                    <div class="mock-sidebar"></div>
+                                    <div class="mockup-cards">
 
-                                    <div class="mock-main">
-
-                                        <div class="mock-heading"></div>
-
-                                        <div class="mock-cards">
-
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-
-                                        </div>
-
-                                        <div class="mock-chart"></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
 
                                     </div>
+
+                                    <div class="mockup-progress"></div>
 
                                 </div>
 
@@ -923,20 +746,16 @@
                     </article>
 
 
-                    <!-- PROJECT 2 -->
 
-                    <article class="project-card reveal">
+                    <!-- Project 02 -->
 
-                        <div class="project-number">
-                            02
-                        </div>
+                    <article class="project-card reverse reveal">
 
-
-                        <div class="project-content">
+                        <div class="project-info">
 
                             <div class="project-meta">
+                                <span>02</span>
                                 <span>DATA ANALYSIS</span>
-                                <span>2026</span>
                             </div>
 
 
@@ -946,11 +765,9 @@
 
 
                             <p>
-
                                 A data analysis project exploring student
-                                performance through datasets, visualizations
-                                and statistical observations.
-
+                                performance, patterns and relationships
+                                using Python and data analysis tools.
                             </p>
 
 
@@ -958,38 +775,41 @@
 
                                 <span>Python</span>
                                 <span>Pandas</span>
+                                <span>NumPy</span>
                                 <span>Matplotlib</span>
-                                <span>Google Colab</span>
 
                             </div>
 
 
-                            <div class="project-actions">
-
-                                <a href="#" class="project-link">
-
-                                    View Project
-
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                                </a>
-
-                            </div>
+                            <a
+                                href="#"
+                                class="project-link"
+                            >
+                                Case Study
+                                <span>↗</span>
+                            </a>
 
                         </div>
 
 
                         <div class="project-visual data-visual">
 
-                            <div class="data-bars">
+                            <div class="chart-card">
 
-                                <span style="--height: 40%"></span>
-                                <span style="--height: 70%"></span>
-                                <span style="--height: 55%"></span>
-                                <span style="--height: 85%"></span>
-                                <span style="--height: 65%"></span>
-                                <span style="--height: 92%"></span>
-                                <span style="--height: 75%"></span>
+                                <div class="chart-title">
+                                    Student Performance
+                                </div>
+
+                                <div class="chart">
+
+                                    <span style="height:45%"></span>
+                                    <span style="height:70%"></span>
+                                    <span style="height:55%"></span>
+                                    <span style="height:85%"></span>
+                                    <span style="height:65%"></span>
+                                    <span style="height:92%"></span>
+
+                                </div>
 
                             </div>
 
@@ -998,27 +818,58 @@
                     </article>
 
 
-                    <!-- FUTURE -->
 
-                    <div class="future-project reveal">
+                    <!-- Project 03 -->
 
-                        <span>COMING NEXT</span>
+                    <article class="project-card reveal">
 
-                        <h3>
-                            More experiments are on the way.
-                        </h3>
+                        <div class="project-info">
 
-                        <p>
-                            AI • Data • Web • Creative Technology
-                        </p>
+                            <div class="project-meta">
+                                <span>03</span>
+                                <span>COMING SOON</span>
+                            </div>
 
-                    </div>
+
+                            <h3>
+                                More Projects
+                            </h3>
+
+
+                            <p>
+                                I'm continuously learning and building.
+                                More projects covering AI, data analysis
+                                and advanced web development are coming.
+                            </p>
+
+
+                            <div class="project-tech">
+
+                                <span>AI</span>
+                                <span>Data</span>
+                                <span>Web</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-visual coming-visual">
+
+                            <div class="coming-circle">
+                                +
+                            </div>
+
+                        </div>
+
+                    </article>
 
                 </div>
 
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -1031,11 +882,11 @@
 
                 <div class="section-heading reveal">
 
-                    <span class="section-number">04 / JOURNEY</span>
+                    <p class="section-label">04 / JOURNEY</p>
 
                     <h2>
-                        Learning.
-                        <span>Building. Growing.</span>
+                        My learning
+                        <span>journey.</span>
                     </h2>
 
                 </div>
@@ -1048,73 +899,72 @@
 
                         <div class="timeline-dot"></div>
 
-                        <div class="timeline-date">
-                            2025
-                        </div>
-
                         <div class="timeline-content">
 
-                            <span>START</span>
+                            <span class="timeline-date">
+                                2025
+                            </span>
 
                             <h3>
-                                Started B.Tech in AI & Data Science
+                                Started B.Tech — AI & Data Science
                             </h3>
 
                             <p>
-                                Began exploring programming,
-                                computer science and artificial intelligence.
+                                Began my journey into programming,
+                                mathematics, computer science and
+                                artificial intelligence.
                             </p>
 
                         </div>
 
                     </div>
+
 
 
                     <div class="timeline-item reveal">
 
                         <div class="timeline-dot"></div>
 
-                        <div class="timeline-date">
-                            2026
-                        </div>
-
                         <div class="timeline-content">
 
-                            <span>BUILDING</span>
+                            <span class="timeline-date">
+                                2026
+                            </span>
 
                             <h3>
-                                Started Building Real Projects
+                                Web Development & Python
                             </h3>
 
                             <p>
-                                Worked with HTML, CSS, JavaScript,
-                                Python, data analysis and GitHub.
+                                Started building websites with HTML,
+                                CSS and JavaScript while developing
+                                Python and data analysis fundamentals.
                             </p>
 
                         </div>
 
                     </div>
+
 
 
                     <div class="timeline-item reveal">
 
                         <div class="timeline-dot"></div>
 
-                        <div class="timeline-date">
-                            NOW
-                        </div>
-
                         <div class="timeline-content">
 
-                            <span>FOCUS</span>
+                            <span class="timeline-date">
+                                NOW
+                            </span>
 
                             <h3>
-                                AI + Development
+                                Building Real Projects
                             </h3>
 
                             <p>
-                                Expanding into advanced web development,
-                                data science and AI engineering.
+                                Working on personal projects, GitHub
+                                consistency, data analysis and
+                                AI-focused learning.
                             </p>
 
                         </div>
@@ -1122,25 +972,25 @@
                     </div>
 
 
-                    <div class="timeline-item upcoming reveal">
+
+                    <div class="timeline-item reveal">
 
                         <div class="timeline-dot"></div>
 
-                        <div class="timeline-date">
-                            NEXT
-                        </div>
-
                         <div class="timeline-content">
 
-                            <span>UPCOMING</span>
+                            <span class="timeline-date">
+                                NEXT
+                            </span>
 
                             <h3>
-                                Advanced Projects
+                                AI • Data • Full-Stack
                             </h3>
 
                             <p>
-                                Building larger full-stack and
-                                AI-powered applications.
+                                Expanding into advanced development,
+                                machine learning, data science and
+                                full-stack technologies.
                             </p>
 
                         </div>
@@ -1152,6 +1002,7 @@
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -1164,67 +1015,28 @@
 
                 <div class="learning-card reveal">
 
-                    <div class="learning-left">
+                    <div>
 
-                        <span class="eyebrow">
+                        <p class="section-label">
                             CURRENTLY LEARNING
-                        </span>
+                        </p>
 
                         <h2>
-                            What's next
-                            <span>for me?</span>
+                            Always building.
+                            <span>Always learning.</span>
                         </h2>
-
-                        <p>
-                            I'm continuously expanding my technical stack
-                            and working towards advanced AI and development.
-                        </p>
 
                     </div>
 
 
-                    <div class="learning-items">
+                    <div class="learning-tags">
 
-                        <div class="learning-item">
-
-                            <span class="learning-icon">
-                                <i class="fa-brands fa-python"></i>
-                            </span>
-
-                            <div>
-                                <strong>Python</strong>
-                                <small>Data & AI foundations</small>
-                            </div>
-
-                        </div>
-
-
-                        <div class="learning-item">
-
-                            <span class="learning-icon">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </span>
-
-                            <div>
-                                <strong>Pandas + NumPy</strong>
-                                <small>Data analysis</small>
-                            </div>
-
-                        </div>
-
-
-                        <div class="learning-item">
-
-                            <span class="learning-icon">
-                                <i class="fa-solid fa-cubes"></i>
-                            </span>
-
-                            <div>
-                                <strong>Advanced Web</strong>
-                                <small>Modern development</small>
-                            </div>
-
-                        </div>
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>JavaScript</span>
+                        <span>Data Analysis</span>
+                        <span>AI / ML</span>
 
                     </div>
 
@@ -1233,6 +1045,7 @@
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -1245,47 +1058,57 @@
 
                 <div class="contact-card reveal">
 
-
-                    <div class="contact-content">
-
-                        <span class="section-number">
-                            05 / CONTACT
-                        </span>
+                    <p class="section-label">
+                        05 / CONTACT
+                    </p>
 
 
-                        <h2>
-                            Have an idea?
-                            <span>Let's build it.</span>
-                        </h2>
+                    <h2>
+                        Have an idea?
+                        <span>Let's build it.</span>
+                    </h2>
 
 
-                        <p>
-                            Whether it's a project, collaboration,
-                            opportunity or just a conversation about tech,
-                            feel free to reach out.
-                        </p>
+                    <p>
+                        I'm always interested in learning, collaborating
+                        and building something meaningful.
+                    </p>
 
+
+                    <a
+                        href="mailto:riteshyadav91724@gmail.com?subject=Let's%20Connect&body=Hello%20Ritesh,"
+                        class="contact-email"
+                    >
+                        riteshyadav91724@gmail.com
+                        <span>↗</span>
+                    </a>
+
+
+                    <div class="contact-socials">
 
                         <a
-                            href="mailto:riteshyadav91724@gmail.com"
-                            class="email-link">
-
-                            riteshyadav91724@gmail.com
-
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
+                            href="https://github.com/RiteshYadav888"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
                         </a>
 
-                    </div>
+                        <a
+                            href="https://www.linkedin.com/in/ritesh-yadav-022060380/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn
+                        </a>
 
-
-                    <div class="contact-orbit">
-
-                        <div class="contact-circle">
-
-                            <i class="fa-regular fa-paper-plane"></i>
-
-                        </div>
+                        <a
+                            href="https://www.instagram.com/rriteshh_yadavv/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                        </a>
 
                     </div>
 
@@ -1298,6 +1121,7 @@
     </main>
 
 
+
     <!-- =========================
          FOOTER
     ========================== -->
@@ -1306,15 +1130,11 @@
 
         <div class="container footer-container">
 
-            <div>
+            <div class="footer-left">
 
-                <strong>
-                    Ritesh.
-                </strong>
-
-                <p>
-                    AI & Data Science Student
-                </p>
+                <span>
+                    © 2026 Ritesh Yadav
+                </span>
 
             </div>
 
@@ -1322,7 +1142,7 @@
             <div class="footer-center">
 
                 <span>
-                    Designed & Built by Ritesh Yadav
+                    AI & Data Science Student
                 </span>
 
             </div>
@@ -1331,7 +1151,7 @@
             <div class="footer-right">
 
                 <span>
-                    © 2026 Ritesh Yadav
+                    Developed by Ritesh Yadav
                 </span>
 
             </div>
@@ -1341,24 +1161,21 @@
     </footer>
 
 
+
     <!-- =========================
          BACK TO TOP
     ========================== -->
 
     <button
-        class="back-to-top"
-        id="back-to-top"
-        aria-label="Back to top">
-
-        <i class="fa-solid fa-arrow-up"></i>
-
+        class="back-top"
+        id="backTop"
+        aria-label="Back to top"
+    >
+        ↑
     </button>
 
 
-    <!-- JavaScript -->
-
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
-
 </html>

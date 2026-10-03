@@ -1,177 +1,145 @@
-/* =========================================================
-   RITESH YADAV — ADVANCED PORTFOLIO
-   SCRIPT.JS
-========================================================= */
-
-
-/* =========================================================
-   01. SELECTORS
-========================================================= */
-
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
-
-
-/* =========================================================
-   02. PAGE LOADER
-========================================================= */
+/* =====================================================
+   LOADER
+===================================================== */
 
 window.addEventListener("load", () => {
 
-    const loader = $("#page-loader");
-
-    if (!loader) return;
+    const loader = document.getElementById("loader");
 
     setTimeout(() => {
 
-        loader.classList.add("hide");
+        loader.classList.add("hidden");
 
-        setTimeout(() => {
-            loader.remove();
-        }, 700);
-
-    }, 900);
+    }, 700);
 
 });
 
 
-/* =========================================================
-   03. ELEMENTS
-========================================================= */
 
-const navbar = $("#navbar");
-const navLinks = $("#nav-links");
-const menuBtn = $("#menu-btn");
+/* =====================================================
+   TYPING EFFECT
+===================================================== */
 
-const progressBar = $("#scroll-progress");
+const typingText = document.getElementById("typingText");
 
-const backToTop = $("#back-to-top");
+const roles = [
 
-const hero = $(".hero");
-const heroImage = $(".hero-image");
+    "AI & Data Science Student",
+    "Future AI Engineer",
+    "Web Developer",
+    "Python Learner",
+    "Data Explorer",
+    "Problem Solver"
 
-const cursorDot = $(".cursor-dot");
-const cursorOutline = $(".cursor-outline");
+];
 
+let roleIndex = 0;
+let charIndex = 0;
 
-/* =========================================================
-   04. NAVBAR
-========================================================= */
-
-function handleNavbar() {
-
-    if (window.scrollY > 40) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-
-}
-
-window.addEventListener("scroll", handleNavbar);
-
-handleNavbar();
+let deleting = false;
 
 
-/* =========================================================
-   05. MOBILE MENU
-========================================================= */
+function typeRole() {
 
-if (menuBtn) {
-
-    menuBtn.addEventListener("click", () => {
-
-        navLinks.classList.toggle("open");
-
-        menuBtn.classList.toggle("active");
-
-    });
-
-}
+    if (!typingText) return;
 
 
-/* Close menu after clicking a link */
-
-$$(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("open");
-
-        menuBtn.classList.remove("active");
-
-    });
-
-});
+    const currentRole = roles[roleIndex];
 
 
-/* =========================================================
-   06. SCROLL PROGRESS
-========================================================= */
+    if (!deleting) {
 
-function updateScrollProgress() {
+        typingText.textContent =
+            currentRole.substring(0, charIndex + 1);
 
-    const scrollTop = window.scrollY;
-
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const progress =
-        documentHeight > 0
-            ? scrollTop / documentHeight
-            : 0;
-
-    if (progressBar) {
-        progressBar.style.transform =
-            `scaleX(${progress})`;
-    }
-
-}
-
-window.addEventListener(
-    "scroll",
-    updateScrollProgress,
-    { passive: true }
-);
-
-updateScrollProgress();
+        charIndex++;
 
 
-/* =========================================================
-   07. BACK TO TOP
-========================================================= */
+        if (charIndex === currentRole.length) {
 
-function updateBackToTop() {
+            deleting = true;
 
-    if (!backToTop) return;
+            setTimeout(typeRole, 1700);
 
-    if (window.scrollY > 700) {
+            return;
+        }
 
-        backToTop.classList.add("show");
 
     } else {
 
-        backToTop.classList.remove("show");
+        typingText.textContent =
+            currentRole.substring(0, charIndex - 1);
+
+        charIndex--;
+
+
+        if (charIndex === 0) {
+
+            deleting = false;
+
+            roleIndex++;
+
+            if (roleIndex >= roles.length) {
+
+                roleIndex = 0;
+
+            }
+
+        }
 
     }
 
+
+    setTimeout(
+        typeRole,
+        deleting ? 45 : 75
+    );
+
 }
 
-window.addEventListener(
-    "scroll",
-    updateBackToTop,
-    { passive: true }
-);
+
+typeRole();
 
 
-if (backToTop) {
 
-    backToTop.addEventListener("click", () => {
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+const menuButton =
+    document.getElementById("menuButton");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+if (menuButton && mobileMenu) {
+
+    menuButton.addEventListener("click", () => {
+
+        mobileMenu.classList.toggle("open");
+
+        document.body.classList.toggle(
+            "menu-open"
+        );
+
+    });
+
+
+    const mobileLinks =
+        mobileMenu.querySelectorAll("a");
+
+
+    mobileLinks.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileMenu.classList.remove("open");
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
         });
 
     });
@@ -179,88 +147,213 @@ if (backToTop) {
 }
 
 
-/* =========================================================
-   08. TYPEWRITER
-========================================================= */
 
-const typingElement = $("#typing-text");
+/* =====================================================
+   SCROLL PROGRESS
+===================================================== */
 
-const titles = [
+const scrollProgress =
+    document.getElementById("scrollProgress");
 
-    "AI & Data Science Student",
-    "Future AI Engineer",
-    "Developer",
-    "Problem Solver",
-    "Tech Explorer"
 
-];
+function updateScrollProgress() {
 
-let titleIndex = 0;
-let characterIndex = 0;
+    const scrollTop =
+        window.scrollY;
 
-let deleting = false;
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-function typeWriter() {
 
-    if (!typingElement) return;
+    const progress =
+        documentHeight > 0
+            ? (scrollTop / documentHeight) * 100
+            : 0;
 
-    const currentTitle = titles[titleIndex];
 
-    if (!deleting) {
-
-        characterIndex++;
-
-        typingElement.textContent =
-            currentTitle.slice(0, characterIndex);
-
-        if (characterIndex === currentTitle.length) {
-
-            deleting = true;
-
-            setTimeout(typeWriter, 1700);
-
-            return;
-        }
-
-    } else {
-
-        characterIndex--;
-
-        typingElement.textContent =
-            currentTitle.slice(0, characterIndex);
-
-        if (characterIndex === 0) {
-
-            deleting = false;
-
-            titleIndex =
-                (titleIndex + 1) % titles.length;
-
-        }
-
-    }
-
-    const speed = deleting ? 35 : 70;
-
-    setTimeout(typeWriter, speed);
+    scrollProgress.style.width =
+        `${progress}%`;
 
 }
 
-typeWriter();
+
+window.addEventListener(
+    "scroll",
+    updateScrollProgress,
+    { passive: true }
+);
 
 
-/* =========================================================
-   09. CUSTOM CURSOR
-========================================================= */
+updateScrollProgress();
 
-const supportsFinePointer =
-    window.matchMedia("(pointer: fine)").matches;
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+
+/* =====================================================
+   ACTIVE NAV LINK
+===================================================== */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+
+function updateActiveNav() {
+
+    let currentSection = "";
+
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 160;
+
+
+        const sectionHeight =
+            section.offsetHeight;
+
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+
+        if (
+            link.getAttribute("href") ===
+            `#${currentSection}`
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateActiveNav,
+    { passive: true }
+);
+
+
+updateActiveNav();
+
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const backTop =
+    document.getElementById("backTop");
+
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 600) {
+
+        backTop.classList.add("show");
+
+    } else {
+
+        backTop.classList.remove("show");
+
+    }
+
+}, { passive: true });
+
+
+backTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+
+
+/* =====================================================
+   CUSTOM CURSOR
+===================================================== */
+
+const cursorDot =
+    document.querySelector(".cursor-dot");
+
+const cursorOutline =
+    document.querySelector(".cursor-outline");
 
 
 if (
-    supportsFinePointer &&
     cursorDot &&
-    cursorOutline
+    cursorOutline &&
+    window.matchMedia("(pointer:fine)").matches
 ) {
 
     let mouseX = 0;
@@ -270,10 +363,12 @@ if (
     let outlineY = 0;
 
 
-    window.addEventListener("mousemove", (event) => {
+    document.addEventListener("mousemove", event => {
 
         mouseX = event.clientX;
+
         mouseY = event.clientY;
+
 
         cursorDot.style.left =
             `${mouseX}px`;
@@ -292,11 +387,13 @@ if (
         outlineY +=
             (mouseY - outlineY) * 0.15;
 
+
         cursorOutline.style.left =
             `${outlineX}px`;
 
         cursorOutline.style.top =
             `${outlineY}px`;
+
 
         requestAnimationFrame(
             animateCursor
@@ -304,440 +401,151 @@ if (
 
     }
 
+
     animateCursor();
 
 
-    /* Cursor hover */
-
-    $$("a, button, .skill-category, .project-card")
-        .forEach(element => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-
-                    cursorOutline.style.width =
-                        "58px";
-
-                    cursorOutline.style.height =
-                        "58px";
-
-                    cursorOutline.style.background =
-                        "rgba(255,255,255,.04)";
-
-                    cursorOutline.style.borderColor =
-                        "rgba(255,255,255,.7)";
-
-                }
-            );
+    const hoverTargets =
+        document.querySelectorAll(
+            "a, button, .skill-card, .project-card, .stat-card"
+        );
 
 
-            element.addEventListener(
-                "mouseleave",
-                () => {
+    hoverTargets.forEach(element => {
 
-                    cursorOutline.style.width =
-                        "34px";
+        element.addEventListener(
+            "mouseenter",
+            () => {
 
-                    cursorOutline.style.height =
-                        "34px";
+                cursorOutline.classList.add(
+                    "hover"
+                );
 
-                    cursorOutline.style.background =
-                        "transparent";
+            }
+        );
 
-                    cursorOutline.style.borderColor =
-                        "rgba(255,255,255,.4)";
 
-                }
-            );
+        element.addEventListener(
+            "mouseleave",
+            () => {
+
+                cursorOutline.classList.remove(
+                    "hover"
+                );
+
+            }
+        );
+
+    });
+
+}
+
+
+
+/* =====================================================
+   SMOOTH ANCHOR SCROLL
+===================================================== */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(link => {
+
+    link.addEventListener("click", event => {
+
+        const targetId =
+            link.getAttribute("href");
+
+
+        if (
+            !targetId ||
+            targetId === "#"
+        ) {
+
+            return;
+
+        }
+
+
+        const target =
+            document.querySelector(targetId);
+
+
+        if (!target) return;
+
+
+        event.preventDefault();
+
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
 
         });
 
-}
-
-
-/* =========================================================
-   10. SCROLL REVEAL
-========================================================= */
-
-const revealObserver =
-    new IntersectionObserver(
-
-        (entries, observer) => {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) return;
-
-                entry.target.classList.add("show");
-
-                observer.unobserve(
-                    entry.target
-                );
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-$$(".reveal").forEach(element => {
-
-    revealObserver.observe(element);
+    });
 
 });
 
 
-/* =========================================================
-   11. ACTIVE NAVIGATION
-========================================================= */
 
-const sections =
-    $$("section[id]");
+/* =====================================================
+   PROJECT CARD MOUSE EFFECT
+===================================================== */
 
-const navigationLinks =
-    $$(".nav-links a");
+const projectCards =
+    document.querySelectorAll(".project-card");
 
 
-const sectionObserver =
-    new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) return;
-
-                const id =
-                    entry.target.getAttribute("id");
-
-                navigationLinks.forEach(link => {
-
-                    link.classList.toggle(
-                        "active",
-                        link.getAttribute("href") === `#${id}`
-                    );
-
-                });
-
-            });
-
-        },
-
-        {
-            rootMargin:
-                "-35% 0px -55% 0px"
-        }
-
-    );
-
-
-sections.forEach(section => {
-
-    sectionObserver.observe(section);
-
-});
-
-
-/* =========================================================
-   12. HERO PARALLAX
-========================================================= */
-
-if (hero && heroImage) {
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (window.innerWidth <= 700) return;
-
-            const rect =
-                hero.getBoundingClientRect();
-
-            const offset =
-                rect.top * -0.025;
-
-            heroImage.style.transform =
-                `scale(1.03) translateY(${offset}px)`;
-
-        },
-        { passive: true }
-    );
-
-}
-
-
-/* =========================================================
-   13. 3D TILT — PROJECT CARDS
-========================================================= */
-
-$$(".project-card").forEach(card => {
+projectCards.forEach(card => {
 
     card.addEventListener(
         "mousemove",
         event => {
-
-            if (window.innerWidth <= 700) return;
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const centerX =
-                rect.width / 2;
-
-            const centerY =
-                rect.height / 2;
-
-            const rotateX =
-                ((y - centerY) / centerY) * -2;
-
-            const rotateY =
-                ((x - centerX) / centerX) * 2;
-
-            card.style.transform =
-                `perspective(1200px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-5px)`;
-
-        }
-    );
-
-
-    card.addEventListener(
-        "mouseleave",
-        () => {
-
-            card.style.transform =
-                "";
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   14. MAGNETIC BUTTONS
-========================================================= */
-
-$$(".magnetic").forEach(button => {
-
-    button.addEventListener(
-        "mousemove",
-        event => {
-
-            if (window.innerWidth <= 700) return;
-
-            const rect =
-                button.getBoundingClientRect();
-
-            const x =
-                event.clientX -
-                rect.left -
-                rect.width / 2;
-
-            const y =
-                event.clientY -
-                rect.top -
-                rect.height / 2;
-
-            button.style.transform =
-                `translate(${x * 0.12}px, ${y * 0.12}px)`;
-
-        }
-    );
-
-
-    button.addEventListener(
-        "mouseleave",
-        () => {
-
-            button.style.transform =
-                "";
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   15. SKILL CARD MOUSE GLOW
-========================================================= */
-
-$$(".skill-category").forEach(card => {
-
-    card.addEventListener(
-        "mousemove",
-        event => {
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            card.style.background = `
-                radial-gradient(
-                    400px circle at ${x}px ${y}px,
-                    rgba(255,255,255,.05),
-                    rgba(255,255,255,.012) 45%
-                )
-            `;
-
-        }
-    );
-
-
-    card.addEventListener(
-        "mouseleave",
-        () => {
-
-            card.style.background =
-                "rgba(255,255,255,.012)";
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   16. ANIMATED COUNTERS
-========================================================= */
-
-const counters =
-    $$("[data-count]");
-
-
-const counterObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) return;
-
-                const counter =
-                    entry.target;
-
-                const target =
-                    Number(
-                        counter.getAttribute("data-count")
-                    );
-
-                let current = 0;
-
-                const duration = 1000;
-
-                const startTime =
-                    performance.now();
-
-
-                function updateCounter(time) {
-
-                    const progress =
-                        Math.min(
-                            (time - startTime) / duration,
-                            1
-                        );
-
-                    current =
-                        Math.floor(
-                            progress * target
-                        );
-
-                    counter.textContent =
-                        current;
-
-                    if (progress < 1) {
-
-                        requestAnimationFrame(
-                            updateCounter
-                        );
-
-                    } else {
-
-                        counter.textContent =
-                            target;
-
-                    }
-
-                }
-
-                requestAnimationFrame(
-                    updateCounter
-                );
-
-                counterObserver.unobserve(
-                    counter
-                );
-
-            });
-
-        },
-
-        {
-            threshold: 0.7
-        }
-
-    );
-
-
-counters.forEach(counter => {
-
-    counterObserver.observe(counter);
-
-});
-
-
-/* =========================================================
-   17. SMOOTH ANCHOR LINKS
-========================================================= */
-
-$$('a[href^="#"]').forEach(link => {
-
-    link.addEventListener(
-        "click",
-        event => {
-
-            const targetId =
-                link.getAttribute("href");
 
             if (
-                !targetId ||
-                targetId === "#"
+                window.innerWidth < 900
             ) {
                 return;
             }
 
-            const target =
-                document.querySelector(targetId);
 
-            if (!target) return;
+            const rect =
+                card.getBoundingClientRect();
 
-            event.preventDefault();
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            const x =
+                event.clientX - rect.left;
+
+
+            const y =
+                event.clientY - rect.top;
+
+
+            const rotateX =
+                ((y / rect.height) - 0.5) * -2;
+
+
+            const rotateY =
+                ((x / rect.width) - 0.5) * 2;
+
+
+            card.style.transform =
+                `perspective(1200px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+            card.style.transform =
+                "perspective(1200px) rotateX(0) rotateY(0)";
 
         }
     );
@@ -745,161 +553,17 @@ $$('a[href^="#"]').forEach(link => {
 });
 
 
-/* =========================================================
-   18. IMAGE PARALLAX / MOUSE MOVEMENT
-========================================================= */
 
-const heroVisual =
-    $(".hero-image-wrapper");
+/* =====================================================
+   CONSOLE MESSAGE
+===================================================== */
 
-
-if (
-    heroVisual &&
-    supportsFinePointer
-) {
-
-    heroVisual.addEventListener(
-        "mousemove",
-        event => {
-
-            const rect =
-                heroVisual.getBoundingClientRect();
-
-            const x =
-                (event.clientX - rect.left) /
-                rect.width -
-                0.5;
-
-            const y =
-                (event.clientY - rect.top) /
-                rect.height -
-                0.5;
-
-
-            const frame =
-                heroVisual.querySelector(
-                    ".image-frame"
-                );
-
-            const orbitOne =
-                heroVisual.querySelector(
-                    ".orbit-one"
-                );
-
-            const orbitTwo =
-                heroVisual.querySelector(
-                    ".orbit-two"
-                );
-
-
-            if (frame) {
-
-                frame.style.transform =
-                    `rotate(${x * 3}deg)
-                     translate(${x * 8}px, ${y * 8}px)`;
-
-            }
-
-
-            if (orbitOne) {
-
-                orbitOne.style.transform =
-                    `rotate(-25deg)
-                     translate(${x * 12}px, ${y * 12}px)`;
-
-            }
-
-
-            if (orbitTwo) {
-
-                orbitTwo.style.transform =
-                    `rotate(55deg)
-                     translate(${x * -10}px, ${y * -10}px)`;
-
-            }
-
-        }
-    );
-
-
-    heroVisual.addEventListener(
-        "mouseleave",
-        () => {
-
-            const frame =
-                heroVisual.querySelector(
-                    ".image-frame"
-                );
-
-            const orbitOne =
-                heroVisual.querySelector(
-                    ".orbit-one"
-                );
-
-            const orbitTwo =
-                heroVisual.querySelector(
-                    ".orbit-two"
-                );
-
-
-            if (frame) {
-                frame.style.transform =
-                    "";
-            }
-
-            if (orbitOne) {
-                orbitOne.style.transform =
-                    "";
-            }
-
-            if (orbitTwo) {
-                orbitTwo.style.transform =
-                    "";
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   19. KEYBOARD ACCESS
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key === "Escape") {
-
-            navLinks.classList.remove("open");
-
-            menuBtn.classList.remove("active");
-
-        }
-
-    }
+console.log(
+    "%cRitesh Yadav — Portfolio",
+    "font-size:20px;font-weight:bold;"
 );
 
 
-/* =========================================================
-   20. CONSOLE
-========================================================= */
-
 console.log(
-    "%c Ritesh Yadav | Portfolio ",
-    `
-        background:#fff;
-        color:#000;
-        padding:8px 12px;
-        border-radius:5px;
-        font-weight:bold;
-        font-size:14px;
-    `
-);
-
-console.log(
-    "%cBuilt with HTML • CSS • JavaScript",
-    "color:#888;font-size:12px;"
+    "AI & Data Science | Web Development | Python"
 );
